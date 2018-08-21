@@ -1,5 +1,6 @@
 package main
 
+
 import (
 	"html/template"
 	"net/http"
@@ -23,6 +24,7 @@ func main() {
 func index(w http.ResponseWriter, r *http.Request) {
 	tpl.ExecuteTemplate(w, "mainmenu.gohtml", nil)
 }
+
 
 func register(w http.ResponseWriter, r *http.Request) {
 	tpl.ExecuteTemplate(w, "register.gohtml", nil)
