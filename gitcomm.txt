@@ -1,0 +1,252 @@
+
+
+Para clonar el repositorio de GitHub (sólo una vez):
+
+	git clone https://github.com/susannalles/MinimalEditions.git
+
+Para subir nuevos materiales a GitHub:
+
+	git init: 							inicia git al interno de la carpeta
+	git add nombre_archivo.txt: 		añade el documento (o carpeta) en el area de espera ("stage")
+	git commit -m "mi primer mensaje de cambios": describe los cambios realizados
+	git remote add origin https://github.com/susannalles/MinimalEditions.git: 		apunta a la dirección donde deseáis subir el nuevo material
+	git push -u origin master": 		subís los cambios al repositorio remote en GitHub por primera vez
+
+
+Push & Pull
+
+git add *			:	 	añade el documento (o carpeta) en el area de espera ("stage")
+git commit -m "mensaje con los detalles del cambio"	: 			describe los cambios realizados
+git push origin master: 	subís los cambios a GitHub 
+git push origin [branch]: 	subís los cambios al repositorio remote en GitHub. Asegurar de escribir el nombre del branch que quieres subir sus cambios y nunca subes al master sin que todos revisamos sus cambios.
+
+
+Sincronizar nuestra copia con el original:
+
+git pull: 	baja los cambios del repositorio remoteo a nuestra copia en local
+
+
+La Brújula: 
+
+git status: señala lo que se ha modificado en la carpeta de trabajo
+
+
+
+Branches
+
+git branch 			: 			Para ver en que branch estas trabajando.
+git branch [name].  :		  Para crear un branch nuevo. Asegurar de usar git checkout para camibar al branch.
+git checkout [branch]  :	    Para cambiar de un branch a otro. Así por ejemplo, si estamos en "master" y queremos cambiarnos a un branch llamado "classwork", haremos 'git checkout classwork'.
+git branch -d [name]  : 		Para quitar un branch. Es posible que git te da un error. Git no te permite quitar un branch que tiene commits no escritos al origin con esta orden. Si estas completamente seguro de que quieres quitar el branch, puedes usar la orden git branch -D [name].
+git checkout -b nombre_branch : para bajar el contenido de un branch
+git pull origin nombre_branch : para actualizar el contenido de un branch (y empezar a trabajar en ese branch).
+git checkout -b nombre_branch : para descargar el contenido de un branch
+git checkout -- file.html     : para ignorar los cambios hechos en local (cuando queremos hacer un push)
+
+
+
+Clonar el repositorio
+Después de tener el repositorio en nuestra cuenta, seleccionar la dirección del repositorio "SSH o HTTP" y clonar:
+
+git clone https://github.com/Mariiacristina/dragons.git
+
+Dentro de la carpeta que genera, comprobar la URL del repositorio:
+
+git remote -v
+
+Dentro de la carpeta que genera, comprobar la URL del repositorio:
+(SALIDA :)
+git remote -v : origin	https://github.com/Mariiacristina/dragons.git (fetch)
+				origin	https://github.com/Mariiacristina/dragons.git (push)
+
+
+Antes de realizar modificaciones agregar la URL del repositorio original del proyecto:
+
+git remote add upstream https://github.com/Mariiacristina/dragons.git
+
+
+git remote -v
+origin	https://github.com/Mariiacristina/dragons.git (fetch)
+origin	https://github.com/Mariiacristina/dragons.git (push)
+upstream	https://github.com/Mariiacristina/dragons.git (fetch)
+upstream	https://github.com/Mariiacristina/dragons.git (push)
+
+
+
+
+Actualizar la rama Master
+Antes de empezar a trabajar, obtener los últimos cambios del Repo Original:
+
+git pull -r upstream master
+
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+
+herramienta de diferencias
+Otra opción útil que puede que quieras configurar es la herramienta de diferencias por defecto, usada para resolver conflictos de unión (merge). Digamos que quieres usar vimdiff:
+
+git config --global merge.tool vimdiff
+
+
+
+
+git help
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+		These are common Git commands used in various situations:
+
+		start a working area (see also: git help tutorial)
+		   clone      Clone a repository into a new directory
+		   init       Create an empty Git repository or reinitialize an existing one
+
+		work on the current change (see also: git help everyday)
+		   add        Add file contents to the index
+		   mv         Move or rename a file, a directory, or a symlink
+		   reset      Reset current HEAD to the specified state
+		   rm         Remove files from the working tree and from the index
+
+		examine the history and state (see also: git help revisions)
+		   bisect     Use binary search to find the commit that introduced a bug
+		   grep       Print lines matching a pattern
+		   log        Show commit logs
+		   show       Show various types of objects
+		   status     Show the working tree status
+
+		grow, mark and tweak your common history
+		   branch     List, create, or delete branches
+		   checkout   Switch branches or restore working tree files
+		   commit     Record changes to the repository
+		   diff       Show changes between commits, commit and working tree, etc
+		   merge      Join two or more development histories together
+		   rebase     Reapply commits on top of another base tip
+		   tag        Create, list, delete or verify a tag object signed with GPG
+
+		collaborate (see also: git help workflows)
+		   fetch      Download objects and refs from another repository
+		   pull       Fetch from and integrate with another repository or a local branch
+		   push       Update remote refs along with associated objects
+
+git help -a' and 'git help -g' list available subcommands and some
+		concept guides. See 'git help <command>' or 'git help <concept>'
+		to read about a specific subcommand or concept.  
+
+git help -a
+
+			available git commands in '/usr/local/Cellar/git/2.18.0/libexec/git-core'
+
+			  add                       merge-index
+			  add--interactive          merge-octopus
+			  am                        merge-one-file
+			  annotate                  merge-ours
+			  apply                     merge-recursive
+			  archimport                merge-resolve
+			  archive                   merge-subtree
+			  bisect                    merge-tree
+			  bisect--helper            mergetool
+			  blame                     mktag
+			  branch                    mktree
+			  bundle                    mv
+			  cat-file                  name-rev
+			  check-attr                notes
+			  check-ignore              p4
+			  check-mailmap             pack-objects
+			  check-ref-format          pack-redundant
+			  checkout                  pack-refs
+			  checkout-index            patch-id
+			  cherry                    prune
+			  cherry-pick               prune-packed
+			  citool                    pull
+			  clean                     push
+			  clone                     quiltimport
+			  column                    read-tree
+			  commit                    rebase
+			  commit-graph              rebase--helper
+			  commit-tree               receive-pack
+			  config                    reflog
+			  count-objects             remote
+			  credential                remote-ext
+			  credential-cache          remote-fd
+			  credential-cache--daemon  remote-ftp
+			  credential-netrc          remote-ftps
+			  credential-osxkeychain    remote-http
+			  credential-store          remote-https
+			  cvsexportcommit           remote-testsvn
+			  cvsimport                 repack
+			  cvsserver                 replace
+			  daemon                    request-pull
+			  describe                  rerere
+			  diff                      reset
+			  diff-files                rev-list
+			  diff-index                rev-parse
+			  diff-tree                 revert
+			  difftool                  rm
+			  difftool--helper          send-email
+			  fast-export               send-pack
+			  fast-import               serve
+			  fetch                     sh-i18n--envsubst
+			  fetch-pack                shell
+			  filter-branch             shortlog
+			  fmt-merge-msg             show
+			  for-each-ref              show-branch
+			  format-patch              show-index
+			  fsck                      show-ref
+			  fsck-objects              stage
+			  gc                        stash
+			  get-tar-commit-id         status
+			  grep                      stripspace
+			  gui                       submodule
+			  gui--askpass              submodule--helper
+			  hash-object               subtree
+			  help                      svn
+			  http-backend              symbolic-ref
+			  http-fetch                tag
+			  http-push                 unpack-file
+			  index-pack                unpack-objects
+			  init                      update-index
+			  init-db                   update-ref
+			  instaweb                  update-server-info
+			  interpret-trailers        upload-archive
+			  log                       upload-pack
+			  ls-files                  var
+			  ls-remote                 verify-commit
+			  ls-tree                   verify-pack
+			  mailinfo                  verify-tag
+			  mailsplit                 web--browse
+			  merge                     whatchanged
+			  merge-base                worktree
+			  merge-file                write-tree		
+
+
+
+
+git help -g
+			The common Git guides are:
+			   attributes          Defining attributes per path
+			   cli                 Git command-line interface and conventions
+			   core-tutorial       A Git core tutorial for developers
+			   cvs-migration       Git for CVS users
+			   diffcore            Tweaking diff output
+			   everyday            A useful minimum set of commands for Everyday Git
+			   glossary            A Git Glossary
+			   hooks               Hooks used by Git
+			   ignore              Specifies intentionally untracked files to ignore
+			   modules             Defining submodule properties
+			   namespaces          Git namespaces
+			   repository-layout   Git Repository Layout
+			   revisions           Specifying revisions and ranges for Git
+			   tutorial            A tutorial introduction to Git
+			   tutorial-2          A tutorial introduction to Git: part two
+			   workflows           An overview of recommended workflows with Git			  
+
+
+git describe -h
+               usage: git describe [<options>] <commit-ish>*
+                  or: git describe [<options>] --dirty			   
